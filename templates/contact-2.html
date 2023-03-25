@@ -1,0 +1,104 @@
+{% extends 'base/base.html' %}
+{% block content %}
+{% include 'base/page_header.html' %}
+{% include 'base/bread_crumbs.html' %}
+    <!-- rts contact area start -->
+    <div class="rts-contact-area-m rts-section-gap">
+        <div class="container">
+            <div class="row g-24">
+                <!-- single contact area -->
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
+                    <div class="single-contact-one-inner">
+                        <div class="thumbnail">
+                            <img src="https://reactheme.com/products/html/elevate/assets/images/contact/01.jpg" alt="">
+                        </div>
+                        <div class="content">
+                            <div class="icone">
+                                <img src="https://reactheme.com/products/html/elevate/assets/images/contact/shape/01.svg" alt="">
+                            </div>
+                            <div class="info">
+                                <span>Звоните нам 24/7</span>
+                                <a href="tel:{{contacts.tel_num}}">
+                                    <h5>{{contacts.tel_num}}</h5>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- single contact area end -->
+                <!-- single contact area -->
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
+                    <div class="single-contact-one-inner">
+                        <div class="thumbnail">
+                            <img src="https://reactheme.com/products/html/elevate/assets/images/contact/02.jpg" alt="">
+                        </div>
+                        <div class="content">
+                            <div class="icone">
+                                <img src="https://reactheme.com/products/html/elevate/assets/images/contact/shape/02.svg" alt="">
+                            </div>
+                            <div class="info">
+                                <span>Напишите</span>
+                                <a href="mailto:{{contacts.email}}">
+                                    <h5>{{contacts.email}}</h5>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- single contact area end -->
+                <!-- single contact area -->
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
+                    <div class="single-contact-one-inner">
+                        <div class="thumbnail">
+                            <img src="https://reactheme.com/products/html/elevate/assets/images/contact/03.jpg" alt="">
+                        </div>
+                        <div class="content">
+                            <div class="icone">
+                                <img src="https://reactheme.com/products/html/elevate/assets/images/contact/shape/03.svg" alt="">
+                            </div>
+                            <div class="info">
+                                <span>Наш адрес</span>
+                                <a href="{{contacts.adr_link}}">
+                                    <h5>{{contacts.adress}}</h5>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- single contact area end -->
+            </div>
+        </div>
+    </div>
+    <!-- rts contact area end -->
+
+    <!-- contact form area strt -->
+    <div class="rts-contact-page-form-area contact-2 rts-section-gapBottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2993.664747281165!2d72.79737104578946!3d40.52933830252976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38bdac1b6eb4c04d%3A0x22b997d9d121d3a0!2zMzE2INCf0YDQvtGB0L_QtdC60YIg0JvQtdC90LjQvdCwLCDQntGI!5e0!3m2!1sru!2skg!4v1679418567552!5m2!1sru!2skg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </iframe>
+                </div>
+                <div class="col-lg-6">
+                    <div class="mian-wrapper-form">
+                        <div class="title-mid-wrapper-home-two" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
+                            <span class="pre">Get In Touch</span>
+                            <h2 class="title">Let’s Get in Touch</h2>
+                        </div>
+                        <form id="contact-form-contact" action="mailer.php" method="post">
+                            <div class="name-email">
+                                <input type="text" name="name" placeholder="Your Name" required="">
+                                <input type="email" name="email" placeholder="Email Address" required="">
+                            </div>
+                            <input type="text" name="subject" placeholder="Your Subject">
+                            <textarea placeholder="Type Your Message" name="message"></textarea>
+                            <button type="submit" class="rts-btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- contact form area end -->
+    {% include 'base/page_footer.html' %}
+    {% endblock content %}

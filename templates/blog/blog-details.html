@@ -1,0 +1,186 @@
+{% extends 'base/base.html' %}
+{% block content %}
+{% include 'base/page_header.html' %}
+{% include 'base/bread_crumbs.html' %}
+
+    <!-- rts blog mlist area -->
+    <div class="rts-blog-list-area rts-section-gap">
+        <div class="container">
+            <div class="row g-5">
+                <!-- rts blo post area -->
+                <div class="col-xl-8 col-md-12 col-sm-12 col-12">
+                    <!-- single post -->
+                    <div class="blog-single-post-listing details mb--0">
+                        <div class="thumbnail">
+                            <img src="{{blog.main_image.url}}" alt="Construction Blog">
+                        </div>
+                        <div class="blog-listing-content">
+                            <div class="user-info">
+                                <!-- single info -->
+                                <div class="single">
+                                    <i class="far fa-user-circle"></i>
+                                    <span>{{user.username}}</span>
+                                </div>
+                                <!-- single infoe end -->
+                                <!-- single info -->
+                                <div class="single">
+                                    <i class="far fa-clock"></i>
+                                    <span>{{blog.date}}</span>
+                                </div>
+                                <!-- single infoe end -->
+                                <!-- single info -->
+                            </div>
+                            <h3 class="title">{{blog.title}}</h3>
+                            {{blog.text | safe}}
+                            <div class="row  align-items-center">
+                                <div class="col-lg-6 col-md-12">
+                                    <!-- tags details -->
+                                    <div class="details-tag">
+                                        <h6>Tags:</h6>
+                                        <button>Services</button>
+                                        <button>Business</button>
+                                        <button>Growth</button>
+                                    </div>
+                                    <!-- tags details End -->
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="details-share">
+                                        <h6>Share:</h6>
+                                        <button><i class="fab fa-facebook-f"></i></button>
+                                        <button><i class="fab fa-twitter"></i></button>
+                                        <button><i class="fab fa-instagram"></i></button>
+                                        <button><i class="fab fa-linkedin-in"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            {%if comments%}
+                            {% for comms in comments %}
+                            <div class="author-area">
+                                <div class="thumbnail details mb_sm--15">
+                                    <img src="assets/images/blog/details/author.jpg" alt="finbiz_buseness">
+                                </div>
+                                <div class="author-details team">
+                                    <h5>{{comms.name}}</h5>
+                                    <p class="disc">
+                                        {{comms.comment}}
+                                    </p>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            {% endif %}
+                            <div class="replay-area-details">
+                                <h4 class="title">Leave a Reply</h4>
+                                <form method='post' action="#"> {% csrf_token %}   
+                                    <div class="row g-4">
+                                        <div class="col-lg-6">
+                                            {{form.name}}
+                                        </div>
+                                        <div class="col-12">
+                                            {{form.comment}}
+                                        </div>
+                                        <div class="col-12">
+                                            <button class="rts-btn btn-primary" type="submit"> Submit Message</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- single post End-->
+                </div>
+                <!-- rts-blog post end area -->
+                <!--rts blog wizered area -->
+                <div class="col-xl-4 col-md-12 col-sm-12 col-12  pd-control-bg--40">
+                    <!-- single wizered start -->
+                    <div class="rts-single-wized search">
+                        <div class="wized-header">
+                            <h5 class="title">
+                                Search Hear
+                            </h5>
+                        </div>
+                        <div class="wized-body">
+                            <div class="rts-search-wrapper">
+                                <input class="Search" type="text" placeholder="Enter Keyword">
+                                <button><i class="fal fa-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- single wizered End -->
+                    <!-- single wizered start -->
+                    <div class="rts-single-wized Categories">
+                        <div class="wized-header">
+                            <h5 class="title">
+                                Категории
+                            </h5>
+                        </div>
+                        <div class="wized-body">
+                            <!-- single categoris -->
+                            {% for cats in category %}
+                            <ul class="single-categories">
+                                <li><a href="{{cats.get_url_blog}}">{{cats.name}}<i class="far fa-long-arrow-right"></i></a></li>
+                            </ul>
+                            {% endfor %}
+                            <!-- single categoris End -->
+                        </div>
+                    </div>
+                    <!-- single wizered End -->
+                    <!-- single wizered start -->
+                    <div class="rts-single-wized Recent-post">
+                        <div class="wized-header">
+                            <h5 class="title">
+                                Недавние посты
+                            </h5>
+                        </div>
+                        <div class="wized-body">
+                            <!-- recent-post -->
+                            {% for resens in recents %}
+                            <div class="recent-post-single">
+                                <div class="thumbnail">
+                                    <a href="{{resens.get_absolute_url}}"><img src="{{resens.main_image.url}}" alt="Blog_post"></a>
+                                </div>
+                                <div class="content-area">
+                                    <div class="user">
+                                        <i class="fal fa-clock"></i>
+                                        <span>{{resens.date}}</span>
+                                    </div>
+                                    <a class="post-title" href="{{resens.get_absolute_url}}">
+                                        <h6 class="title">{{resens.title}}</h6>
+                                    </a>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            <!-- recent-post End -->
+                        </div>
+                    </div>
+                    
+                    <div class="rts-single-wized Recent-post">
+                        <div class="wized-header">
+                            <h5 class="title">
+                                Gallery Post
+                            </h5>
+                        </div>
+                        <div class="wized-body">
+                            <div class="gallery-inner">
+                                <div class="row-1 single-row">
+                                    {% for img in images %}
+                                    <a href="{{img.blog.get_absolute_url}}"><img src="{{img.image.url}}" alt="Gallery"></a>
+                                    {% endfor %}
+                                </div>
+                                <div class="row-2 single-row">
+                                    {% for img2 in images2 %}
+                                    <a href="{{img2.blog.get_absolute_url}}"><img src="{{img2.image.url}}" alt="Gallery"></a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- single wizered End -->
+                </div>
+                <!-- rts- blog wizered end area -->
+            </div>
+        </div>
+    </div>
+    <!-- rts blog mlist area End -->
+
+    {% include 'base/page_footer.html' %}
+    {% endblock content %}

@@ -1,0 +1,91 @@
+{% extends 'base/base.html' %}
+{% block content %}
+{% include 'base/page_header.html' %}
+{% include 'base/bread_crumbs.html' %}
+
+    <div class="rts-project-details-thumbnail rts-section-gapTop">
+        <div class="container">
+            <div class="row g-24">
+                {% for img in images %}
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <a href="#" class="thumbnail">
+                        <img src="{{img.image.url}}" alt="project-area">
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="rts-project-details-area pb--100 pt--25">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="big-bg-porduct-details">
+                        <img src="{{projects.main_image.url}}" alt="Business_Finbiz">
+                        <div class="project-info">
+                            <div class="info-head">
+                                <h5 class="title">Информация о проекте</h5>
+                            </div>
+                            <div class="info-body">
+                                <!-- single info -->
+                                <div class="single-info">
+                                    <div class="info-ico">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="info-details">
+                                        <span>Клиент:</span>
+                                        <h6 class="name">{{projects.client}}</h6>
+                                    </div>
+                                </div>
+                                <!-- end single info -->
+                                <!-- single info -->
+                                <div class="single-info">
+                                    <div class="info-ico">
+                                        <i class="fas fa-layer-group"></i>
+                                    </div>
+                                    <div class="info-details">
+                                        <span>Категория:</span>
+                                        <h6 class="name">{{projects.category.name}}</h6>
+                                    </div>
+                                </div>
+                                <!-- end single info -->
+                                <!-- single info -->
+                                <div class="single-info">
+                                    <div class="info-ico">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </div>
+                                    <div class="info-details">
+                                        <span>Дата:</span>
+                                        <h6 class="name">{{projects.date}}</h6>
+                                    </div>
+                                </div>
+                                <!-- end single info -->
+                                <!-- single info -->
+                                <div class="single-info">
+                                    <div class="info-ico">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div class="info-details">
+                                        <span>Адрес:</span>
+                                        <h6 class="name">{{projects.adress}}</h6>
+                                    </div>
+                                </div>
+                                <!-- end single info -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt--70 mb--50">
+                <div class="col-12">
+                    <div class="product-details-main-inner" data-sal="slide-up" data-sal-delay="150" data-sal-duration="900">
+                        <span>{{projects.name}}</span>
+                        {{projects.desc | safe}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% include 'base/page_footer.html' %} 
+{% endblock content %}

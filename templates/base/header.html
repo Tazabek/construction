@@ -1,0 +1,186 @@
+{% load static %}
+    <!-- header style two -->
+    <!-- header srea start -->
+    <header class="header-one">
+        <!-- hedaer top -->
+        <div class="header-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header-top-wrapper">
+                            <!-- left area header top -->
+                            <div class="left">
+                                <div class="icon">
+                                    <svg xmlns="https://reactheme.com/products/html/elevate/assets/images/logo/01.png" width="13" height="17" viewBox="0 0 13 17" fill="none">
+                                        <path d="M6.95455 6.95454H12.3636L5.40909 17V10.0455H0L6.95455 -3.8147e-06V6.95454Z" fill="#FF6600" />
+                                    </svg>
+                                </div>
+                                <p class="disc">
+                                    Экспресс-доставка и бесплатный возврат в течение 24 часов
+                                </p>
+                            </div>
+                            <!-- right area strat -->
+                            <div class="right">
+                                <ul>
+                                    <li class="single"><a href="careers.html">Карьеры</a></li>
+                                    <li class="single"><a href="{%url 'blogs'%}">Новости</a></li>
+                                    <li class="single last"><a href="contact.html">Контакты</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- hedaer bottom -->
+        <!-- header style hear -->
+        <div class="header-mid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header-mid-one-wrapper">
+                            <div class="logo-area">
+                                <a href="{%url 'homepage'%}">
+                                    <img src="{{settings.logo.url}}" alt="logo">
+                                </a>
+                            </div>
+                            <div class="header-right">
+                                <!-- sinle map area -->
+                                <div class="single-component info-con">
+                                    <div class="icon">
+                                        <i class=""></i>
+                                    </div>
+                                    <div class="info">
+                                        <span>Наш адрес</span>
+                                        <a href="{{settings.adr_link}}">{{settings.adress}}</a>
+                                    </div>
+                                </div>
+                                <!-- sinle map area -->
+                                <!-- sinle map area -->
+                                <div class="single-component info-con">
+                                    <div class="icon">
+                                        <i class="fal fa-envelope"></i>
+                                    </div>
+                                    <div class="info">
+                                        <span>Напишите нам</span>
+                                        <a href="mailto:{{settings.email}}">{{settings.email}}</a>
+                                    </div>
+                                </div>
+                                <!-- sinle map area -->
+                                <!-- sinle map area -->
+                                <div class="single-component">
+                                    <a href="{%url 'contact'%}" class="rts-btn btn-primary">Get a Quote
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" viewBox="0 0 14 13" fill="none">
+                                            <path d="M11.0039 3.414L2.39691 12.021L0.98291 10.607L9.58891 2H2.00391V-3.8147e-06H13.0039V11H11.0039V3.414Z" fill="white" />
+                                        </svg>
+                                    </a>
+                                    <div class="menu-area d-block d-lg-none" id="menu-btn">
+                                        <div class="icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="16" viewBox="0 0 18 16" fill="none">
+                                                <rect width="18" height="2" fill="#0C0A0A"></rect>
+                                                <rect y="7" width="18" height="2" fill="#0C0A0A"></rect>
+                                                <rect y="14" width="18" height="2" fill="#0C0A0A"></rect>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- sinle map area -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- header style hearm end -->
+
+        <div class="nav-area-one  header--sticky">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="nav-header-area">
+                            <div class="clip-path"></div>
+                            <div class="wrapper">
+                                <!-- header style two -->
+                                <!-- nav area start -->
+                                <div class="main-nav-desk nav-area">
+                                    <nav>
+                                        <ul>
+                                            <li class="has-droupdown">
+                                                <a class="nav-link" href="{%url 'homepage'%}">Главная</a>
+                                            </li>
+                                            <li class="has-droupdown pages">
+                                                <a class="nav-link" href="#">Страницы</a>
+                                                <ul class="submenu inner-page">
+                                                    <li class="sub-dropdown">
+                                                        <a href="#" class="sub-menu-link">Кто мы</a>
+                                                        <ul class="submenu third-lvl base">
+                                                            <li><a class="mobile-menu-link" href="{% url 'about'%}">О нас</a></li>
+                                                            <li><a class="mobile-menu-link" href="{%url 'careers'%}">Карьеры</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><a href="{%url 'history'%}">Наша История</a></li>
+                                                    <li><a href="{%url 'team'%}">Наша команда</a></li>
+                                                    <li class="sub-dropdown">
+                                                        <a href="{%url 'contact'%}" class="sub-menu-link">Контакты</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="has-droupdown pages">
+                                                <a class="nav-link" href="{%url 'service'%}">Услуги</a>
+                                            </li>
+                                            <li class="has-droupdown pages">
+                                                <a class="nav-link" href="{%url 'project'%}">Проекты</a>
+                                            </li>
+                                            <li class="has-droupdown pages">
+                                                <a class="nav-link" href="{%url 'blogs'%}">Новости</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a class="nav-item" href="{%url 'contact'%}">Контакты</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <!-- nav-area end -->
+                                <!-- header style two End -->
+                                <div class="btn-right">
+                                    <div class="search-btn" id="search">
+                                        <i class="fa-light fa-magnifying-glass"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header srea end -->
+    <div class="search-input-area">
+        <div class="container">
+            <div class="search-input-inner">
+                <div class="input-div">
+                    <input id="searchInput1" class="search-input" type="text" placeholder="Search by keyword or #">
+                    <button><i class="far fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+        <div id="close" class="search-close-icon"><i class="far fa-times"></i></div>
+    </div>
+
+
+    <div id="anywhere-home" class="">
+    </div>
+
+    <!-- pre loader start -->
+    <div id="elevate-load">
+        <div class="loader-wrapper">
+            <div class="lds-ellipsis">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <!-- pre loader end -->
+

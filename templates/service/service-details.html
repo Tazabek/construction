@@ -1,0 +1,46 @@
+{% extends 'base/base.html' %}
+{% block content %}
+{% include 'base/page_header.html' %}
+{% include 'base/bread_crumbs.html' %}
+    <!-- rts service details area start -->
+    <div class="rts-service-area rts-section-gap">
+        <div class="container">
+            <div class="row g-5">
+                <!--rts blog wizered area -->
+                <div class="col-xl-4 col-md-12 col-sm-12 col-12 sd-pad-r">
+                    <!-- single wizered start -->
+                    <div class="rts-single-wized Categories">
+                        <div class="wized-header">
+                            <h5 class="title">
+                                Категории
+                            </h5>
+                        </div>
+                        <div class="wized-body">
+                            <!-- single categoris -->
+                            {% for cats  in category %}
+                            <ul class="single-categories">
+                                <li><a href="{{cats.get_url}}">{{cats.name}}<i class="far fa-long-arrow-right"></i></a></li>
+                            </ul>
+                            {% endfor %}
+                            <!-- single categoris End -->
+                        </div>
+                    </div>
+                </div>
+                <!-- rts- blog wizered end area -->
+                <div class="col-xl-8 col-md-12 col-sm-12 col-12 plr_sm--20">
+                    <!-- service details left area start -->
+                    <div class="service-detials-step-1">
+                        <div class="thumbnail">
+                            <img src="{{service.image.url}}" alt="elevate-area">
+                        </div>
+                        <h4 class="title">{{service.name}}</h4>
+                        {{service.text | safe}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- rts service details area end -->
+    {% include 'base/page_footer.html' %}
+    {% endblock content %}
+ 

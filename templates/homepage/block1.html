@@ -1,0 +1,56 @@
+
+
+    <!-- banner start -->
+    <div class="rts-banner-main-area-swiper">
+        <!-- Slider main container -->
+        <div class="swiper-container">
+            <!-- Additional required wrapper -->
+
+            <div class="swiper-pagination"></div>
+
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                {% for slide in slides %}
+                <div class="swiper-slide">
+                    <!-- rts-banner area end-->
+                    <div class="rts-section-gap ptb_sm-20 rts-banner-one bg_image bg_image--1">
+                        <div class="banner-shape-area">
+                            <img src="{{slide.image.url}}" alt="banner-shape" class="shape shape-1">
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="banner-one-wrapper ptb--110">
+                                        <h1 class="title-banner">
+                                            {{slide.text| safe}} 
+                                        </h1>
+                                        <div class="button-area-banner">
+                                            <a href="#" class="rts-btn btn-primary">Начать</a>
+                                            <!-- call now information -->
+                                            <div class="call-area">
+                                                <div class="icon">
+                                                    <i class="fa-regular fa-phone-volume"></i>
+                                                </div>
+                                                <div class="detail">
+                                                    <span>Звоните</span>
+                                                    <a href="tel:{{settings.tel_num}}" class="number">
+                                                        {{settings.tel_num}}
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <!-- call now information end -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- rts-banner area end -->
+                </div>
+                {% endfor %}
+                <!-- If we need pagination -->
+            </div>
+            <!-- If we need navigation buttons -->
+        </div>
+    </div>
+    <!-- banner end -->

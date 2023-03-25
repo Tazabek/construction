@@ -1,0 +1,123 @@
+{% extends 'base/base.html' %}
+{% block content %}
+{% include 'base/page_header.html' %}
+{% include 'base/bread_crumbs.html' %}
+
+    <!-- rts team -details area start -->
+    <div class="personal-info-area-start rts-section-gapTop pb--100">
+        <div class="container">
+            <div class="row g-0 align-items-center">
+                <div class="col-lg-5">
+                    <div class="thumbnail m-img">
+                        <img src="{{member.image.url}}" alt="team-image">
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="personal-info-team">
+                        <div class="inner-content" data-sal="slide-up" data-sal-delay="150" data-sal-duration="900">
+                            <span class="pre-title">
+                                {{member.post}}
+                            </span>
+                            <h3 class="title">{{member.name}}</h3>
+                            <p class="disc">
+                                {{member.post_desc}}
+                            </p>
+                            <!-- ingle information start -->
+                            <div class="single-info">
+                                <div class="icon">
+                                    <i class="fa-light fa-envelope"></i>
+                                </div>
+                                <div class="info">
+                                    <span>Почта</span>
+                                    <a href="mailto:{{member.email}}" class="mail">{{member.email}}</a>
+                                </div>
+                            </div>
+                            <!-- ingle information end -->
+                            <!-- ingle information start -->
+                            <div class="single-info">
+                                <div class="icon">
+                                    <i class="fa-solid fa-phone-volume"></i>
+                                </div>
+                                <div class="info">
+                                    <span>Тел. номер</span>
+                                    <a href="tel:{{member.tel_num}}" class="mail">{{member.tel_num}}</a>
+                                </div>
+                            </div>
+                            <!-- ingle information end -->
+                            <!-- ingle information start -->
+                            <div class="single-info">
+                                <div class="icon">
+                                    <i class="fa-light fa-location-dot"></i>
+                                </div>
+                                <div class="info">
+                                    <span>Офис</span>
+                                    <a href="#" class="mail">{{member.office}}</a>
+                                </div>
+                            </div>
+                            <!-- ingle information end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- rts team -details area END -->
+
+
+    <!-- skills and experience area start -->
+    <div class="rts-team-skill-area rts-section-gapBottom">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6">
+                    <!-- single skill area -->
+                    <div class="single-about-skill-inner">
+                        <h5 class="title">Профессиональные навыки</h5>
+                        <p class="disc mb--30">
+                            {{member.skill_desc}}
+                        </p>
+                        <div class="progress-wrapper-area-two team-details">
+                            <!-- single progress -->
+                            {% for skil in skills %}
+                            <div class="single-progress">
+                                <div class="top">
+                                    <span class="name">{{skil.skill_name}}</span>
+                                    <span class="digit">{{skil.percent}}%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar wow fadeInLeft" role="progressbar" style="width: {{skil.percent}}%; visibility: visible; animation-name: fadeInLeft;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            <!-- single progress end -->
+                        </div>
+                    </div>
+                    <!-- single skill area end-->
+                </div>
+                <div class="col-lg-6">
+                    <!-- single skill area -->
+                    <div class="single-about-skill-inner pl--30 pl_md--0 pl_sm--0">
+                        <h5 class="title">Образовательный опыт</h5>
+                        <p class="disc">
+                            {{member.ex_desc}}
+                        </p>
+
+                        <div class="education-skill-wrapper">
+                            {% for exs in expers %}
+                            <div class="single-skill">
+                                <div class="number-area">
+                                    <p>{{exs.id}}<span></span></p>
+                                </div>
+                                <h6 class="experience">{{exs.name}}</h6>
+                                <div class="date">{{exs.years}}<span>(Место)</span></div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <!-- single skill area end-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- skills and experience area end -->
+    {% include 'base/page_footer.html' %}
+    {% endblock content %}

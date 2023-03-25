@@ -1,0 +1,65 @@
+    <!-- rts technical expart -->
+    <div class="rts-technical-expart-area pb--90">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="elecate-center-title" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
+                        <span>Технический эксперт
+                        </span>
+                        <h3 class="title">Наши технические эксперты</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-24 mt--10">
+
+                <div class="col-lg-12">
+                    <div class="swiper-technical-main-wrapper">
+                        <div class="next-prev-btn">
+                            <div class="swiper-button-next"><i class="fa-regular fa-arrow-right"></i></div>
+                            <div class="swiper-button-prev"><i class="fa-regular fa-arrow-left"></i></div>
+                        </div>
+                        <div class="swiper mySwiper-technical">
+                            <div class="swiper-wrapper">
+                                {% for expers in experts %}
+                                <div class="swiper-slide">
+                                    <!-- single team area start -->
+                                    <div class="rts-team-one-start pb--180">
+                                        <div class="wrapper">
+                                            <a href="team-details.html" class="thumbnail">
+                                                <img src="{{expers.image.url}}" alt="team-area">
+                                            </a>
+                                            <div class="inner">
+                                                <a href="team-details.html" class="name">
+                                                    <h5 class="title">{{expers.name}}</h5>
+                                                </a>
+                                                <span class="desig">{{expers.post}}</span>.
+                                                <div class="info-wrapper">
+                                                    <!-- single infor -->
+                                                    <div class="single">
+                                                        <i class="fa-light fa-envelope"></i>
+                                                        <a href="mailto:{{expers.email}}">{{expers.email}}</a>
+                                                    </div>
+                                                    <!-- single info -->
+                                                    <!-- single infor -->
+                                                    <div class="single">
+                                                        <i class="fa-regular fa-phone-volume"></i>
+                                                        <a href="tel:{{expers.tel_num}}">{{expers.tel_num}}</a>
+                                                    </div>
+                                                    <!-- single info -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- single team area end -->
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- rts technical expart end -->

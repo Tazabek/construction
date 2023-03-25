@@ -1,0 +1,365 @@
+{% extends 'base/base.html' %}
+{% block content %}
+{% include 'base/page_header.html' %}
+{% include 'base/bread_crumbs.html' %}
+    <!-- rts about area start -->
+    <div class="rts-about-area-about rts-section-gap">
+        <div class="container pb--45 plr_sm--15">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="thumbnail-area-about">
+                        <img src="{{about.image1.url}}" alt="about-area">
+                        <img src="{{about.image2.url}}" alt="about-sm" class="small">
+                        <a class="rts-btn btn-primary" href="#">Elevate Profile</a>
+                    </div>
+                </div>
+                <div class="col-lg-7 about-a-p-cont">
+                    <div class="about-inner-wrapper-inner">
+                        <div class="title-three-left">
+                            <span class="pre-title" data-sal="slide-up" data-sal-delay="100" data-sal-duration="800" style="display: block;">
+                                Ремонтная компания
+                            </span>
+                        </div>
+                        <div class="main-content-area-about-p">
+                            <p class="disc">
+                                {{about.text | safe}}
+                            </p>
+                            <div class="service-wrapper">
+                                <a href="{%url 'contact'%}" class="rts-btn btn-primary">Доп. инф.</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-text">
+                <h2 class="title">About Company</h2>
+            </div>
+        </div>
+    </div>
+    <!-- rts about area end -->
+
+    <!-- rts service area start -->
+    <div class="service-abot-area rts-section-gap service-about-bg bg_image" style = 'background-color:  black'>
+        <div class="container-210">
+            <div class="row align-items-center">
+                <div class="col-xl-6 col-lg-12  plr-sm">
+                    <div class="thumbnail-service-about">
+                        <img src="{{about.image3.url}}" alt="service-image">
+                        <div class="vedio-icone">
+                            <a id="play-video" class="video-play-button" href="#">
+                                <span></span>
+                            </a>
+                            <div id="video-overlay" class="video-overlay">
+                                <a class="video-overlay-close">×</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-12 pading-controler">
+                    <div class="service-about-wrapper">
+                        <div class="title-three-left">
+                            <span class="pre-title" data-sal="slide-up" data-sal-delay="100" data-sal-duration="800" style="display: block;">
+                                Особенности
+                            </span>
+                            <h3 class="title" data-sal="slide-up" data-sal-delay="100" data-sal-duration="800">
+                                Почему выберают нас
+                            </h3>
+                        </div>
+                        <div class="row mt--15 g-24">
+                            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                                <div class="single-service-sm">
+                                    <div class="icon">
+                                        <img src="https://reactheme.com/products/html/elevate/assets/images/service/icon/01.svg" alt="">
+                                    </div>
+                                    <p>Пофессиональная команда</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                                <div class="single-service-sm">
+                                    <div class="icon">
+                                        <img src="https://reactheme.com/products/html/elevate/assets/images/service/icon/02.svg" alt="">
+                                    </div>
+                                    <p>Своевременная доставка</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                                <div class="single-service-sm">
+                                    <div class="icon">
+                                        <img src="https://reactheme.com/products/html/elevate/assets/images/service/icon/03.svg" alt="">
+                                    </div>
+                                    <p>24/7 Поддержка</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                                <div class="single-service-sm">
+                                    <div class="icon">
+                                        <img src="https://reactheme.com/products/html/elevate/assets/images/service/icon/04.svg" alt="">
+                                    </div>
+                                    <p>Лучшее оборудования</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                                <div class="single-service-sm">
+                                    <div class="icon">
+                                        <img src="https://reactheme.com/products/html/elevate/assets/images/service/icon/05.svg" alt="">
+                                    </div>
+                                    <p>100% Гарантия</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                                <div class="single-service-sm">
+                                    <div class="icon">
+                                        <img src="https://reactheme.com/products/html/elevate/assets/images/service/icon/06.svg" alt="">
+                                    </div>
+                                    <p>Своевременная доставка</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- rts service area end -->
+
+    <!-- what we offer start -->
+    <div class="rts-offer-provide-section rts-section-gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="title-mid-wrapper-home-two" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
+                        <span class="pre">Наши услуги</span>
+                        <h2 class="title">Что мы предлагаем</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt--15 g-24">
+                {% for serv  in service %}
+                <div class="col-lg-4">
+                    <!-- single offer area sart -->
+                    <div class="rts-single-offer">
+                        <a href="service-details.html" class="thumbnail">
+                            <img src="{{serv.image.url}}" alt="service">
+                        </a>
+                        <div class="content-wrapper">
+                            <a href="service-details.html">
+                                <h5 class="title">
+                                    {{serv.name}}
+                                </h5>
+                            </a>
+                            <p class="disc">
+                                {{serv.text | safe}}
+                            </p>
+                            <a href="service-details.html" class="rts-btn btn-transparent-service">Об услуге<i class="fa-light fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- single offer area end -->
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- what we offer end -->
+
+    <!-- rts fun facts area starts -->
+    <div class="rts-about-fun-facts rts-section-gap bg_about-f">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="about-fun-facts-wrapper">
+                        <!-- single -fun facts area start -->
+                        <div class="single-funfacts-about">
+                            <div class="top">
+                                <div class="icon">
+                                    <img src="https://reactheme.com/products/html/elevate/assets/images/fun-facts/icon/06.svg" alt="fun-facts">
+                                </div>
+                                <h2 class="title plus"><span class="counter">25</span></h2>
+                            </div>
+                            <p class="disc">
+                                Years of Experience. Urban design draws together the many standers of place-making
+                            </p>
+                        </div>
+                        <!-- single -fun facts area end -->
+                        <!-- single -fun facts area start -->
+                        <div class="single-funfacts-about">
+                            <div class="top">
+                                <div class="icon">
+                                    <img src="https://reactheme.com/products/html/elevate/assets/images/fun-facts/icon/07.svg" alt="fun-facts">
+                                </div>
+                                <h2 class="title percent"><span class="counter">80</span></h2>
+                            </div>
+                            <p class="disc">
+                                Projects completed Successfully. Urban design draws together the many standers of place-making
+                            </p>
+                        </div>
+                        <!-- single -fun facts area end -->
+                        <!-- single -fun facts area start -->
+                        <div class="single-funfacts-about">
+                            <div class="top">
+                                <div class="icon">
+                                    <img src="https://reactheme.com/products/html/elevate/assets/images/fun-facts/icon/08.svg" alt="fun-facts">
+                                </div>
+                                <h2 class="title plus"><span class="counter">100</span></h2>
+                            </div>
+                            <p class="disc">
+                                Team members for 24/7 Support. Urban design draws together the many standers of place-making
+                            </p>
+                        </div>
+                        <!-- single -fun facts area end -->
+                        <!-- single -fun facts area start -->
+                        <div class="single-funfacts-about">
+                            <div class="top">
+                                <div class="icon">
+                                    <img src="https://reactheme.com/products/html/elevate/assets/images/fun-facts/icon/09.svg" alt="fun-facts">
+                                </div>
+                                <h2 class="title plus"><span class="counter">38</span></h2>
+                            </div>
+                            <p class="disc">
+                                Countries, We Worked. Urban design draws together the many standers of place-making
+                            </p>
+                        </div>
+                        <!-- single -fun facts area end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- rts fun facts area end -->
+
+    <!-- rts testimonials area start -->
+    <div class="rts-testimonials-area rts-section-gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="main-wrapper-testimonials">
+
+                        <div class="swiper swiper-testimonials-1">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <!-- single -->
+                                    <div class="testimonials-mian-wrapepr">
+                                        <div class="image-area">
+                                            <h4 class="title">
+                                                TRUSTED FROM OVER <br>
+                                            1,500 CLIENTS
+                                            </h4>
+                                            <div class="thumbnail">
+                                                <img src="assets/images/testimonials/01.png" alt="testimonials">
+                                            </div>
+                                        </div>
+                                        <div class="testimonials-right">
+                                            <h3 class="title">
+                                                The group at Baroque is unimaginably committed, educated, and supportive. The completed item was delightful, and worth each penny. I would totally suggest Baroque...
+                                            </h3>
+                                            <a href="#" class="name">Bargman ,<span>ENVATO LLC</span></a>
+                                        </div>
+                                    </div>
+                                    <!-- single -->
+                                </div>
+                                <div class="swiper-slide">
+                                    <!-- single -->
+                                    <div class="testimonials-mian-wrapepr">
+                                        <div class="image-area">
+                                            <h4 class="title">
+                                                TRUSTED FROM OVER <br>
+                                            1,500 CLIENTS
+                                            </h4>
+                                            <div class="thumbnail">
+                                                <img src="assets/images/testimonials/01.png" alt="testimonials">
+                                            </div>
+                                        </div>
+                                        <div class="testimonials-right">
+                                            <h3 class="title">
+                                                The group at Baroque is unimaginably committed, educated, and supportive. The completed item was delightful, and worth each penny. I would totally suggest Baroque...
+                                            </h3>
+                                            <a href="#" class="name">Bargman ,<span>ENVATO LLC</span></a>
+                                        </div>
+                                    </div>
+                                    <!-- single -->
+                                </div>
+                                <div class="swiper-slide">
+                                    <!-- single -->
+                                    <div class="testimonials-mian-wrapepr">
+                                        <div class="image-area">
+                                            <h4 class="title">
+                                                TRUSTED FROM OVER <br>
+                                            1,500 CLIENTS
+                                            </h4>
+                                            <div class="thumbnail">
+                                                <img src="assets/images/testimonials/01.png" alt="testimonials">
+                                            </div>
+                                        </div>
+                                        <div class="testimonials-right">
+                                            <h3 class="title">
+                                                The group at Baroque is unimaginably committed, educated, and supportive. The completed item was delightful, and worth each penny. I would totally suggest Baroque...
+                                            </h3>
+                                            <a href="#" class="name">Bargman ,<span>ENVATO LLC</span></a>
+                                        </div>
+                                    </div>
+                                    <!-- single -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button-wrapper">
+
+                            <div class="swiper-button-next"><i class="fa-regular fa-arrow-right"></i></div>
+                            <div class="swiper-button-prev"><i class="fa-regular fa-arrow-left"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- rts testimonials area end -->
+
+    <!-- rts blog area start -->
+    <div class="rts-blog-area rts-section-gapBottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="title-mid-wrapper-home-two" data-sal="slide-up" data-sal-delay="150" data-sal-duration="900">
+                        <h2 class="title">Последние новости</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-24 mt--10">
+                {% for blog in blogs %}
+                <div class="col-lg-4">
+                    <!-- single blog two -->
+                    <div class="blog-single-two-wrapper">
+                        <div class="image-area">
+                            <a href="" class="thumbnail">
+                                <img src="{{blog.main_image.url}}" alt="blog-image">
+                            </a>
+                            <div class="date-area">
+                                <div class="date">
+                                    <span class="day">{{blog.date| date:'d'}}</span>
+                                    <span class="month">{{blog.date| date:'M'}}</span>
+                                </div>
+                                <div class="year">
+                                    <span class="year">{{blog.date| date:'Y'}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="inner">
+                            <span class="pre-tag">
+                                {{blog.category.name}}
+                            </span>
+                            <a href="blog-details.html">
+                                <h5 class="title">
+                                    {{blog.title}}
+                                </h5>
+                            </a>
+                            <a href="blog-details.html" class="btn-read-more-blog">Читать <i class="fa-light fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- single blog two end -->
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- rts blog area end -->
+{% include 'base/page_footer.html' %}
+{% endblock content %}

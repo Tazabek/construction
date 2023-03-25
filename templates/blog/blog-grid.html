@@ -1,0 +1,139 @@
+{% extends 'base/base.html' %}
+{% block content %}
+{% include 'base/page_header.html' %}
+{% include 'base/bread_crumbs.html' %}
+
+    <div class="rts-blog-grid-area rts-section-gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-8">
+                    <div class="row g-24">
+                        {% for blog in blogs %}
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                            <!-- single blog two -->
+                            <div class="blog-single-two-wrapper">
+                                <div class="image-area">
+                                    <a href="{{blog.get_absolute_url}}" class="thumbnail">
+                                        <img src="{{blog.main_image.url}}" alt="blog-image">
+                                    </a>
+                                    <div class="date-area">
+                                        <div class="date">
+                                            <span class="day">{{blog.date | date:'d'}}</span>
+                                            <span class="month">{{blog.date | date:'M'}}</span>
+                                        </div>
+                                        <div class="year">
+                                            <span class="year">{{blog.date | date:'Y'}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="inner">
+                                    <span class="pre-tag">
+                                        {{blog.category.name}}
+                                    </span>
+                                    <a href="{{blog.get_absolute_url}}">
+                                        <h5 class="title">
+                                            {{blog.title}}
+                                        </h5>
+                                    </a>
+                                    <a href="{{blog.get_absolute_url}}" class="btn-read-more-blog">Читать <i class="fa-light fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                            <!-- single blog two end -->
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-xl-4  pd-control-bg--40">
+                    <!-- rts single wized -->
+                    <div class="rts-single-wized search">
+                        <div class="wized-header">
+                            <h5 class="title">
+                                Search Hear
+                            </h5>
+                        </div>
+                        <div class="wized-body">
+                            <div class="rts-search-wrapper">
+                                <input class="Search" type="text" placeholder="Enter Keyword">
+                                <button><i class="fal fa-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- rts single wized end -->
+                    <!-- rts single wized -->
+                    <div class="rts-single-wized Categories">
+                        <div class="wized-header">
+                            <h5 class="title">
+                                Категории
+                            </h5>
+                        </div>
+                        <div class="wized-body">
+                            <!-- single categoris -->
+                            {% for cat in category %}
+                            <ul class="single-categories">
+                                <li><a href="{{cat.get_url_blog}}">{{cat.name}}<i class="far fa-long-arrow-right"></i></a></li>
+                            </ul>
+                            {% endfor %}
+                            <!-- single categoris End -->
+                        </div>
+                    </div>
+                    <!-- rts single wized end -->
+                    <!-- rts single wized -->
+                    <div class="rts-single-wized Recent-post">
+                        <div class="wized-header">
+                            <h5 class="title">
+                                Недавние посты
+                            </h5>
+                        </div>
+                        <div class="wized-body">
+                            <!-- recent-post -->
+                            {% for recens in recents %}
+                            <div class="recent-post-single">
+                                <div class="thumbnail">
+                                    <a href="{{recens.get_absolute_url}}"><img src="{{recens.main_image.url}}" alt="Blog_post"></a>
+                                </div>
+                                <div class="content-area">
+                                    <div class="user">
+                                        <i class="fal fa-clock"></i>
+                                        <span>{{recens.date}}</span>
+                                    </div>
+                                    <a class="post-title" href="{{recens.get_absolute_url}}">
+                                        <h6 class="title">{{recens.title}}</h6>
+                                    </a>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            <!-- recent-post End -->
+
+                        </div>
+                    </div>
+                    <!-- rts single wized end -->
+                    <!-- rts single wized -->
+                    <div class="rts-single-wized Recent-post">
+                        <div class="wized-header">
+                            <h5 class="title">
+                                Gallery Post
+                            </h5>
+                        </div>
+                        <div class="wized-body">
+                            <div class="gallery-inner">
+                                <div class="row-1 single-row">
+                                    {% for img in images %}
+                                    <a href="{{img.blog.get_absolute_url}}"><img src="{{img.image.url}}" alt="Gallery"></a>
+                                    {% endfor %}
+                                </div>
+                                <div class="row-2 single-row">
+                                    {% for img2 in images2 %}
+                                    <a href="{{img2.blog.get_absolute_url}}"><img src="{{img2.image.url}}" alt="Gallery"></a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- rts single wized end -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include 'base/page_footer.html' %}
+    {% endblock content %}

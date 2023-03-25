@@ -1,0 +1,152 @@
+{% extends 'base/base.html' %}
+{% block content %}
+{% include 'base/page_header.html' %}
+{% include 'base/bread_crumbs.html' %}
+
+    <!-- company process start -->
+    <div class="rts-company-process career rts-section-gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="title-three-left">
+                        <div class="bg-title">
+                            Process
+                        </div>
+                        <span class="pre-title">
+                            Ремонтная компания
+                        </span>
+                        <h3 class="title">
+                            Преимущества
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <!-- process wrapper start -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="main-process-wrapper">
+                        <!-- single process area start -->
+                        <div class="row">
+                            {% for bens in benefits %}
+                            <div class="col-lg-3 col-md-6">
+                                <div class="single-working-process-three text-center">
+                                    <div class="icon">
+                                        <img src="{{bens.image.url}}" alt="">
+                                        <span class="tag">{{bens.id}}</span>
+                                    </div>
+                                    <h5 class="title">{{bens.name}}</h5>
+                                    <p class="disc">
+                                        {{bens.desc}}
+                                    </p>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <!-- single process area end -->
+                    </div>
+                </div>
+            </div>
+            <!-- process wrapper end -->
+        </div>
+    </div>
+    <!-- company process end -->
+
+    <!-- rts fun facts area start-->
+    <div class="rts-service-area career rts-section-gap2Bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="title-three-left">
+                        <div class="bg-title">
+                            Process
+                        </div>
+                        <span class="pre-title">
+                            Ремонтная компания
+                        </span>
+                        <h3 class="title">
+                            Вакансии
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-24">
+                {% for vacs in vacancy %}
+                <div class="col-lg-4 col-md-6" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
+                    <!-- single fun facts  -->
+                    <div class="rts-single-service-two">
+                        <h2 class="title-main"><span class="tag">{{vacs.id}}.</span></h2>
+                        <a href="#">
+                            <h4 class="title">{{vacs.post}}</h4>
+                        </a>
+                        <p class="disc">
+                            {{vacs.desc}}
+                        </p>
+                        <div class="loc-text">
+                            <strong>Location:</strong>
+                            {{vacs.location}}
+                        </div>
+                        <a href="#apply-here" class="rts-btn btn-primary">Подать заявку</a>
+                    </div>
+                    <!-- single fun facts end -->
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- rts fun facts area end-->
+
+    <!-- start make an appoiunment area start -->
+    <div id="apply-here" class="rts-make-an-appoinemtn-area career rts-section-gapBottom">
+        <div class="container">
+            <div class="row align-items-center g-0 bg-appoinment">
+                <div class="col-xl-5 col-lg-12 pr--80 pr_md--0 pr_sm--0">
+                    <!-- appoinment thumbnail area start -->
+                    <div class="thumbnail appoinment-m-thumb">
+                        <img src="https://reactheme.com/products/html/elevate/assets/images/appoinment/01.jpg" alt="appoinment-area">
+                    </div>
+                    <!-- appoinment thumbnail area end -->
+                </div>
+                <div class="col-xl-7 col-lg-12">
+                    <!-- appoinment inner content area start -->
+                    <div class="appoinment-inner-content-wrapper">
+                        <h3 class="title">
+                            Apply To Join Our The Consulting Team
+                        </h3>
+                        <form action="#" class="appoinment-form mt--40">
+                            <div class="input-half-wrapper">
+                                <div class="single-input">
+                                    <input type="text" placeholder="Your Name" required>
+                                </div>
+                                <div class="single-input">
+                                    <input type="email" placeholder="Email Address" required>
+                                </div>
+                            </div>
+                            <div class="input-half-wrapper">
+                                <div class="single-input phone">
+                                    <input type="number" placeholder="Phone Number" required>
+                                </div>
+                                <select>
+                                    <option data-display="Select">Select Position</option>
+                                    {% for vacs in vacancy %}
+                                    <option value="{{vacs.id}}">{{vacs.post}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="input-half-wrapper mt--25 mb--30">
+                                <div class="single-input file">
+                                    <input type="file" placeholder="Phone Number" required>
+                                </div>
+                            </div>
+                            <textarea class="form-control mb--30" id="message" name="message" placeholder="Your message Here" required=""></textarea>
+                            <button type="submit" class="rts-btn btn-primary">SUBMIT NOW</button>
+                        </form>
+                    </div>
+                    <!-- appoinment inner content area end -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- start make an appoiunment area end -->
+
+    {% include 'base/page_footer.html' %}
+    {% endblock content %}

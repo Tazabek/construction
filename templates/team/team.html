@@ -1,0 +1,40 @@
+{% extends 'base/base.html' %}
+{% block content %}
+{% include 'base/page_header.html' %}
+{% include 'base/bread_crumbs.html' %}
+    <!-- rts team area start -->
+    <div class="rts-section-gap3 team-3bg">
+        <div class="container">
+            <div class="row">
+                {% for tea in team %}
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                    <!-- single team one start -->
+                    <div class="single-team-three">
+                        <div class="thumbnail">
+                            <img src="{{tea.image.url}}" alt="team_area-start">
+                            <div class="social-team-wrapper">
+                                <ul>
+                                    <li><a href=""><i class="fa-brands fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="content-area">
+                            <span class="designation">
+                                {{tea.post}}
+                            </span>
+                            <a href="{{tea.get_absolute_url}}">
+                                <h6 class="name">{{tea.name}}</h6>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- single team one start -->
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- rts team area end -->
+    {% include 'base/page_footer.html' %}
+    {% endblock content %}
