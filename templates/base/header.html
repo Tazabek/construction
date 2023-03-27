@@ -159,8 +159,10 @@
         <div class="container">
             <div class="search-input-inner">
                 <div class="input-div">
-                    <input id="searchInput1" class="search-input" type="text" placeholder="Search by keyword or #">
+                    <form action="{%url 'search'%}" method="filter"  accept-charset="utf-8" >
+                    <input name='search field' id="searchInput1" class="search-input" type="text" placeholder="Search by keyword or #">
                     <button><i class="far fa-search"></i></button>
+                    </form>
                 </div>
             </div>
         </div>

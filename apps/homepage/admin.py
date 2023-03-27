@@ -8,3 +8,4 @@ class CategoryAdmin(admin.ModelAdmin):
 admin.site.register(Settings)
 admin.site.register(Slides)
 admin.site.register(Category, CategoryAdmin)
+admin.site.register(Messages)

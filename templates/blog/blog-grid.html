@@ -53,9 +53,11 @@
                         </div>
                         <div class="wized-body">
                             <div class="rts-search-wrapper">
-                                <input class="Search" type="text" placeholder="Enter Keyword">
+                                <form action="{% url 'blogs'%}" method="filter" accept-charset="utf-8"> 
+                                <input name='news search' class="Search" type="text" placeholder="Enter Keyword">
                                 <button><i class="fal fa-search"></i></button>
-                            </div>
+                                </form>
+                            </div>      
                         </div>
                     </div>
                     <!-- rts single wized end -->

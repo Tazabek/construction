@@ -51,4 +51,13 @@ class Slides(models.Model):
         verbose_name_plural = 'Слайд'
     
 
+class Messages(models.Model):
+    name = models.CharField('Имя', max_length=155, help_text='Ваше имя')
+    email = models.EmailField('Email', help_text='Email Address')
+    text = models.TextField('Сообщение')
 
+    def __str__(self) -> str:
+        return f'{self.name} | {self.email}'
+    
+    class Meta:
+        verbose_name_plural = 'Сообщения'

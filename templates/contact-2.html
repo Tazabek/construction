@@ -82,16 +82,15 @@
                 <div class="col-lg-6">
                     <div class="mian-wrapper-form">
                         <div class="title-mid-wrapper-home-two" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
-                            <span class="pre">Get In Touch</span>
-                            <h2 class="title">Let’s Get in Touch</h2>
+                            <span class="pre"></span>
+                            <h2 class="title">Свяжитесь с нами</h2>
                         </div>
-                        <form id="contact-form-contact" action="mailer.php" method="post">
+                        <form id="contact-form-contact" action="#" method="post"> {% csrf_token %}
                             <div class="name-email">
-                                <input type="text" name="name" placeholder="Your Name" required="">
-                                <input type="email" name="email" placeholder="Email Address" required="">
+                                {{form.name}}
+                                {{form.email}}
                             </div>
-                            <input type="text" name="subject" placeholder="Your Subject">
-                            <textarea placeholder="Type Your Message" name="message"></textarea>
+                            {{form.text}}
                             <button type="submit" class="rts-btn btn-primary">Send Message</button>
                         </form>
                     </div>

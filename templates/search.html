@@ -1,0 +1,15 @@
+{% extends 'base/base.html' %}
+{% block content %}
+{%if services %}
+{% include 'homepage/block2.html' %}
+{% endif %}
+{%if projects %}
+{% include 'homepage/block4.html' %}
+{% endif %}
+{%if experts %}
+{% include 'homepage/block5.html' %}
+{%endif%}
+{% if blogs %}
+{% include 'homepage/block7.html' %}
+{% endif %}
+{% endblock content %}
