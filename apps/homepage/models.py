@@ -61,3 +61,12 @@ class Messages(models.Model):
     
     class Meta:
         verbose_name_plural = 'Сообщения'
+
+class Subscribe(models.Model):
+    email = models.EmailField('Email', unique=True)
+
+    def __str__(self) -> str:
+        return self.email
+    
+    class Meta:
+        verbose_name_plural = 'Подписки'

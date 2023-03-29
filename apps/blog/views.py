@@ -10,10 +10,10 @@ def  blog(request):
     images = Images.objects.all()[:3]
     images2 = Images.objects.all().order_by('-id')[:3]
     settings = Settings.objects.latest('id')
-    if request.method == 'GET':
-        query = request.GET.get('news search')
+    if request.method == 'POST':
+        query = request.POST.get('news search')
         blogs = Blogs.objects.filter(title__contains=query)
-    
+        
     context = {
         'blogs': blogs, 
         'category': category,

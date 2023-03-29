@@ -22,3 +22,17 @@ class Vacancy(models.Model):
     
     class Meta:
         verbose_name_plural = 'Вакансии'
+
+class Apply(models.Model):
+    name = models.CharField('Ф.И.О', max_length=155)
+    email = models.EmailField('email адрес')
+    phone = models.CharField('Номер телефона', max_length=15)
+    post = models.CharField('Должность', max_length=155)
+    image = models.ImageField('Фото', upload_to='vacancy/')
+    text = models.TextField('Текст')
+
+    def __str__(self) -> str:
+        return f'{self.name} | {self.post}'
+    
+    class Meta:
+        verbose_name_plural = 'Заявки'

@@ -9,12 +9,12 @@
                             <img src="https://reactheme.com/products/html/elevate/assets/images/logo/02.png" alt="blog-images">
                         </a>
                         <h4 class="title" data-sal="zoom-in" data-sal-delay="150" data-sal-duration="800">
-                            Subscribe Our Newsletter <br>
-                            For Latest Updates
+                            ПОДПИСАТЬСЯ НА НАШУ РАССЫЛКУ<br>
+                            ДЛЯ ПОСЛЕДНИХ ОБНОВЛЕНИЙ
                         </h4>
                         <div class="subscribe-area" data-sal="zoom-in" data-sal-delay="150" data-sal-duration="800">
-                            <form action="#" method="post"> {% csrf_token %}
-                                    
+                            <form action="{%url 'homepage'%}" method="post"> {% csrf_token %}
+                                {{form.email}}
                                 <button class="rts-btn btn-primary">Subscribe</button>
                             </form>
                         </div>

@@ -3,53 +3,6 @@
 {% include 'base/page_header.html' %}
 {% include 'base/bread_crumbs.html' %}
 
-    <!-- company process start -->
-    <div class="rts-company-process career rts-section-gap">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="title-three-left">
-                        <div class="bg-title">
-                            Process
-                        </div>
-                        <span class="pre-title">
-                            Ремонтная компания
-                        </span>
-                        <h3 class="title">
-                            Преимущества
-                        </h3>
-                    </div>
-                </div>
-            </div>
-            <!-- process wrapper start -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="main-process-wrapper">
-                        <!-- single process area start -->
-                        <div class="row">
-                            {% for bens in benefits %}
-                            <div class="col-lg-3 col-md-6">
-                                <div class="single-working-process-three text-center">
-                                    <div class="icon">
-                                        <img src="{{bens.image.url}}" alt="">
-                                        <span class="tag">{{bens.id}}</span>
-                                    </div>
-                                    <h5 class="title">{{bens.name}}</h5>
-                                    <p class="disc">
-                                        {{bens.desc}}
-                                    </p>
-                                </div>
-                            </div>
-                            {% endfor %}
-                        </div>
-                        <!-- single process area end -->
-                    </div>
-                </div>
-            </div>
-            <!-- process wrapper end -->
-        </div>
-    </div>
-    <!-- company process end -->
 
     <!-- rts fun facts area start-->
     <div class="rts-service-area career rts-section-gap2Bottom">
@@ -110,36 +63,36 @@
                     <!-- appoinment inner content area start -->
                     <div class="appoinment-inner-content-wrapper">
                         <h3 class="title">
-                            Apply To Join Our The Consulting Team
+                            Подать заявку, чтобы присоединиться к нашей команде консультантов
                         </h3>
-                        <form action="#" class="appoinment-form mt--40">
+                        <form action="#" class="appoinment-form mt--40" method="post" enctype="multipart/form-data"> {% csrf_token %}
                             <div class="input-half-wrapper">
                                 <div class="single-input">
-                                    <input type="text" placeholder="Your Name" required>
+                                    {{form.name}}
                                 </div>
                                 <div class="single-input">
-                                    <input type="email" placeholder="Email Address" required>
+                                    {{form.email}}
                                 </div>
                             </div>
                             <div class="input-half-wrapper">
                                 <div class="single-input phone">
-                                    <input type="number" placeholder="Phone Number" required>
+                                    {{form.phone}}
                                 </div>
-                                <select>
-                                    <option data-display="Select">Select Position</option>
+                                <select name="post_job">
+                                    <option data-display="Select">Выберите должность</option>
                                     {% for vacs in vacancy %}
-                                    <option value="{{vacs.id}}">{{vacs.post}}</option>
+                                    <option value="{{vacs.post}}">{{vacs.post}}</option>
                                     {% endfor %}
                                 </select>
                             </div>
                             <div class="input-half-wrapper mt--25 mb--30">
                                 <div class="single-input file">
-                                    <input type="file" placeholder="Phone Number" required>
+                                    <input name="photo" type="file" placeholder="Phone Number" required>
                                 </div>
                             </div>
-                            <textarea class="form-control mb--30" id="message" name="message" placeholder="Your message Here" required=""></textarea>
-                            <button type="submit" class="rts-btn btn-primary">SUBMIT NOW</button>
-                        </form>
+                            {{form.text}}
+                            <button type="submit" value='upload' class="rts-btn btn-primary">SUBMIT NOW</button>
+                        </form> 
                     </div>
                     <!-- appoinment inner content area end -->
                 </div>

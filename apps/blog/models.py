@@ -39,7 +39,7 @@ class Commenst(models.Model):
     news = models.ForeignKey(Blogs, on_delete=models.CASCADE, verbose_name='Комменты', related_name='comments')
 
     def __str__(self) -> str:
-        return self.name
+        return f'{self.name} | {self.news.title}'
     
     class Meta:
         verbose_name_plural = 'Комменты'

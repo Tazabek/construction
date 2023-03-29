@@ -17,6 +17,16 @@ def homepage(request):
     count = Projects.objects.count()
     count2 = Member.objects.count()
     count3 = Messages.objects.count()
+    if request.method == 'POST':
+        form = SubscribeForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+
+            s = Subscribe(email=email)
+            s.save()
+            return render(request, 'subs.html')
+    else:
+        form = SubscribeForm()
     context = {
         'settings': settings,
         'slides': slides,
@@ -25,6 +35,7 @@ def homepage(request):
         'experts': experts,
         'blogs': blog,
         'posts': posts,
+        'form': form,
         'count': count,
         'count2': count2,
         'count3': count3,

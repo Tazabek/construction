@@ -4,3 +4,4 @@ from .models import *
 
 admin.site.register(Benefits)
 admin.site.register(Vacancy)
+admin.site.register(Apply)

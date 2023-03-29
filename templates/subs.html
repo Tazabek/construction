@@ -1,0 +1,23 @@
+{% extends 'base/base.html' %}
+{% block content %}
+{% include 'base/page_header.html' %}
+
+    <div class="rts-404-area ptb--200 ptb_md--100 ptb_sm--80">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="wrapper-404 text-center">
+                        <div class="thumbnail">
+                            <img src="https://reactheme.com/products/html/elevate/assets/images/contact/04.png" alt="">
+                        </div>
+                        <h2 class="title mt--40">
+                            Спасибо за подписку!
+                        </h2>
+                        <a class="rts-btn btn-primary" href="{%url 'homepage'%}">Back To Homepage</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'base/page_footer.html' %}
+    {% endblock content %}

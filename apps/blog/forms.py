@@ -6,7 +6,7 @@ class NewsForm(forms.ModelForm):
         model = Commenst
         fields = ('name', 'comment',)
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control'}),
-            'comment': forms.Textarea(attrs={'class': 'form-control'}),
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Имя'}),
+            'comment': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Сообщение'}),
             }
     
