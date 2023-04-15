@@ -18,6 +18,9 @@ class BlogAdmin(admin.ModelAdmin):
     inlines = [ImagesInline, CommentInline]
     prepopulated_fields = {'slug':('title',)}
     list_filter = ('category',)
+    list_display = ['id', 'title', 'user']
+    list_display_links = ['id', 'title']
 
 admin.site.register(Blogs, BlogAdmin)
 admin.site.register(Commenst)
+admin.site.register(Like)

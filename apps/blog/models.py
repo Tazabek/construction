@@ -1,8 +1,11 @@
 from django.db import models
+from django.contrib.auth import get_user_model
 from django.shortcuts import reverse
 from mptt.models import MPTTModel, TreeForeignKey
 from ckeditor.fields import RichTextField
 from apps.homepage.models import Category
+
+User = get_user_model()
 
 class Blogs(models.Model):
     main_image = models.ImageField('Главное фото', upload_to='blog/')
@@ -11,6 +14,7 @@ class Blogs(models.Model):
     slug = models.SlugField('Ссылка')
     date = models.DateField('Дата', auto_now_add=True, blank=True, null=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='Категория')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='post_user')
     count = models.IntegerField('Счет', default=0)
 
     def get_absolute_url(self):
@@ -43,3 +47,10 @@ class Commenst(models.Model):
     
     class Meta:
         verbose_name_plural = 'Комменты'
+
+class Like(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='liked_user')
+    post = models.ForeignKey(Blogs, on_delete=models.CASCADE, related_name='liked_post')
+
+    def __str__(self) -> str:
+        return self.user.username

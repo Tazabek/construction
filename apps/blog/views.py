@@ -1,7 +1,12 @@
 from django.shortcuts import render, redirect
+from rest_framework import permissions
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework import viewsets
 from .models import *
 from .forms import *
 from apps.homepage.models import *
+from .serializers import *
+from .permissions import *
 
 def  blog(request):
     blogs = Blogs.objects.all()
@@ -81,4 +86,45 @@ def categy(request, slug):
         'next': 'Новости',
     }
     return render(request, 'blog/blog-grid.html', context)
+
+
+class BlogViewSet(viewsets.ModelViewSet):
+    serializer_class = BlogSerializer
+    queryset = Blogs.objects.all()
+    permission_by_action = {
+        'list': [IsAuthenticatedOrReadOnly],
+        'create': [IsAuthenticatedOrReadOnly],
+        'retrieve': [IsAuthenticatedOrReadOnly],
+        'update': [IsOwner],
+        'delete': [IsOwner],
+    }
+
+    def get_permissions(self):
+        try:
+            return [permission() for permission in self.permission_by_action[self.action]]
+        except KeyError:
+            return [permission() for permission in self.permission_classes]
+
+
+class PostImageAPIView(viewsets.ModelViewSet):
+    queryset = Images.objects.all()
+    serializer_class = BlogImageSerializer
+
+class LikeAPIView(viewsets.ModelViewSet):
+    queryset = Like.objects.all()
+    serializer_class = LikeSerializer
+    permission_by_action = {
+        'list': [IsAuthenticatedOrReadOnly],
+        'create': [IsAuthenticatedOrReadOnly],
+        'retrieve': [IsAuthenticatedOrReadOnly],
+        'update': [IsOwner],
+        'delete': [IsOwner],
+    }
+
+    def get_permissions(self):
+        try:
+            return [permission() for permission in self.permission_by_action[self.action]]
+        except KeyError:
+            return [permission() for permission in self.permission_classes]
+
 
